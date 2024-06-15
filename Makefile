@@ -40,7 +40,7 @@ test-e2e:
 	docker start -a e2e-tests || true
 	docker cp e2e-tests:/results ./  || true
 	docker rm --force apiserver  || true
-	docker rm --force calc-web || true
+	docker rm --force calc-web || true && junit2html results/cypress_result.xml results/cypress_result.html
 	docker rm --force e2e-tests || true
 	docker network rm calc-test-e2e || true
 
